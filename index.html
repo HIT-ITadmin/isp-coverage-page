@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +26,7 @@
                     <p class="text-gray-600 mt-1">Version 1.0.0</p>
                 </div>
                 <div class="divide-y divide-gray-200">
-
-                    <div class="p-6">
+                    <div class="p-6" id="mac-arm">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <div
@@ -35,10 +35,10 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-gray-800">Download for macOS</h3>
-                                    <p class="text-sm text-gray-600">.dmg file for Apple Silicon and Intel</p>
+                                    <p class="text-sm text-gray-600">.dmg file for ARM64</p>
                                 </div>
                             </div>
-                            
+
                             <a href="https://github.com/HIT-ITadmin/isp-coverage-page/releases/download/v1.0.0/ISP-Coverage-Checker-1.0.0-arm64.dmg"
                                 class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
                                 <i class="fas fa-download mr-2"></i>
@@ -47,7 +47,28 @@
                         </div>
                     </div>
 
-                    <div class="p-6">
+                    <div class="p-6" id="mac-intel">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fab fa-apple text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Download for macOS</h3>
+                                    <p class="text-sm text-gray-600">.dmg file for Intel</p>
+                                </div>
+                            </div>
+
+                            <a href="https://github.com/HIT-ITadmin/isp-coverage-page/releases/download/v1.0.0/ISP-Coverage-Checker-1.0.0.dmg"
+                                class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="p-6" id="windows">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <div
@@ -79,5 +100,32 @@
         </footer>
     </div>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const downloads = {
+            macArm: document.getElementById("mac-arm"),
+            macIntel: document.getElementById("mac-intel"),
+            windows: document.getElementById("windows")
+        };
+
+        // Ocultar todos inicialmente
+        Object.values(downloads).forEach(el => el.style.display = "none");
+
+        if (userAgent.includes("win")) {
+            downloads.windows.style.display = "block";
+        } else if (userAgent.includes("mac")) {
+            if (userAgent.includes("arm") || userAgent.includes("apple")) {
+                downloads.macArm.style.display = "block";
+            } else {
+                downloads.macIntel.style.display = "block";
+            }
+        } else {
+            // Mostrar todos si no se detecta
+            Object.values(downloads).forEach(el => el.style.display = "block");
+        }
+    });
+</script>
 
 </html>
