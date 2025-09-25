@@ -107,11 +107,10 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const userAgent = navigator.userAgent;
+        const platform = navigator.platform;
+        document.getElementById("ua-text").textContent =
+            "UserAgent: " + userAgent + " | Platform: " + platform;
 
-        // Mostrar el userAgent en pantalla
-        document.getElementById("ua-text").textContent = "UserAgent: " + userAgent;
-
-        const uaLower = userAgent.toLowerCase();
         const downloads = {
             macArm: document.getElementById("mac-arm"),
             macIntel: document.getElementById("mac-intel"),
@@ -121,19 +120,35 @@
         // Ocultar todos inicialmente
         Object.values(downloads).forEach(el => el.style.display = "none");
 
-        if (uaLower.includes("win")) {
-            downloads.windows.style.display = "block";
-        } else if (uaLower.includes("mac")) {
-            if (uaLower.includes("arm") || uaLower.includes("apple")) {
-                downloads.macArm.style.display = "block";
-            } else {
-                downloads.macIntel.style.display = "block";
-            }
+        if (navigator.userAgentData) {
+            navigator.userAgentData.getHighEntropyValues(["platform", "architecture"])
+                .then(ua => {
+                    if (ua.platform === "Windows") {
+                        downloads.windows.style.display = "block";
+                    } else if (ua.platform === "macOS") {
+                        if (ua.architecture === "arm") {
+                            downloads.macArm.style.display = "block";
+                        } else {
+                            downloads.macIntel.style.display = "block";
+                        }
+                    } else {
+                        Object.values(downloads).forEach(el => el.style.display = "block");
+                    }
+                });
         } else {
-            // Mostrar todos si no se detecta
-            Object.values(downloads).forEach(el => el.style.display = "block");
+            // Fallback: Safari / navegadores sin userAgentData
+            if (platform.includes("Win")) {
+                downloads.windows.style.display = "block";
+            } else if (platform.includes("Mac")) {
+                // Mostrar los dos en Mac si no se puede distinguir
+                downloads.macArm.style.display = "block";
+                downloads.macIntel.style.display = "block";
+            } else {
+                Object.values(downloads).forEach(el => el.style.display = "block");
+            }
         }
     });
 </script>
+
 
 </html>
