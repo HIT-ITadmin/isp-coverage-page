@@ -17,8 +17,6 @@
             </div>
             <h1 class="text-4xl font-bold text-white mb-4">ISP Coverage Checker</h1>
             <p class="text-xl text-white">Check internet coverage in your area</p>
-
-            <!-- Aquí mostramos el userAgent -->
             <p id="ua-text" class="mt-4 text-sm text-white font-mono bg-black/30 px-4 py-2 rounded"></p>
         </header>
 
@@ -28,21 +26,13 @@
                     <h2 class="text-2xl font-semibold text-gray-800">Available Downloads</h2>
                     <p class="text-gray-600 mt-1">Version 1.0.0</p>
                 </div>
-                 <div class="border-b border-gray-200 p-6"></div>
-
-                        <a href="https://github.com/HIT-ITadmin/isp-coverage-page/releases/download/v1.0.0/setup-mac.sh"
-            download
-            class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
-            <i class="fas fa-download mr-2"></i>
-            Download Script
-        </a>
-        </div>
                 <div class="divide-y divide-gray-200">
+
+                    <!-- macOS ARM -->
                     <div class="p-6" id="mac-arm">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <div
-                                    class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
                                     <i class="fab fa-apple text-2xl"></i>
                                 </div>
                                 <div>
@@ -50,20 +40,19 @@
                                     <p class="text-sm text-gray-600">.dmg file for ARM64</p>
                                 </div>
                             </div>
-
                             <a href="https://github.com/HIT-ITadmin/isp-coverage-page/releases/download/v1.0.0/ISP-Coverage-Checker-1.0.0-arm64.dmg"
-                                class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                               class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
                                 <i class="fas fa-download mr-2"></i>
                                 Download
                             </a>
                         </div>
                     </div>
 
+                    <!-- macOS Intel -->
                     <div class="p-6" id="mac-intel">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <div
-                                    class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
                                     <i class="fab fa-apple text-2xl"></i>
                                 </div>
                                 <div>
@@ -71,20 +60,19 @@
                                     <p class="text-sm text-gray-600">.dmg file for Intel</p>
                                 </div>
                             </div>
-
                             <a href="https://github.com/HIT-ITadmin/isp-coverage-page/releases/download/v1.0.0/ISP.Coverage.Checker-1.0.0.dmg"
-                                class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                               class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
                                 <i class="fas fa-download mr-2"></i>
                                 Download
                             </a>
                         </div>
                     </div>
 
+                    <!-- Windows -->
                     <div class="p-6" id="windows">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <div
-                                    class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
                                     <i class="fab fa-windows text-2xl"></i>
                                 </div>
                                 <div>
@@ -93,9 +81,30 @@
                                 </div>
                             </div>
                             <a href="https://github.com/HIT-ITadmin/isp-coverage-page/releases/download/v1.0.0/ISP-Coverage-Checker-Setup-1.0.0.exe"
-                                class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                               class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
                                 <i class="fas fa-download mr-2"></i>
                                 Download
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- macOS setup script -->
+                    <div class="p-6" id="mac-setup-script">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-terminal text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">macOS Setup Script</h3>
+                                    <p class="text-sm text-gray-600">Instala Node.js, dependencias y Playwright</p>
+                                </div>
+                            </div>
+                            <a href="https://github.com/HIT-ITadmin/isp-coverage-page/releases/download/v1.0.0/setup-mac.sh"
+                               download
+                               class="bg-[#1cb254] hover:bg-[#30BA5E] text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                                <i class="fas fa-download mr-2"></i>
+                                Descargar Script
                             </a>
                         </div>
                     </div>
@@ -104,7 +113,7 @@
             </div>
         </div>
 
-        <footer class="text-center mt-16 py-8 ">
+        <footer class="text-center mt-16 py-8">
             <p class="text-white">
                 <i class="fas fa-heart text-red-500"></i>
                 Developed by HIT-ITadmin
@@ -145,11 +154,10 @@
                     }
                 });
         } else {
-            // Fallback: Safari / navegadores sin userAgentData
+            // Fallback para navegadores antiguos
             if (platform.includes("Win")) {
                 downloads.windows.style.display = "block";
             } else if (platform.includes("Mac")) {
-                // Mostrar los dos en Mac si no se puede distinguir
                 downloads.macArm.style.display = "block";
                 downloads.macIntel.style.display = "block";
             } else {
@@ -158,6 +166,4 @@
         }
     });
 </script>
-
-
 </html>
